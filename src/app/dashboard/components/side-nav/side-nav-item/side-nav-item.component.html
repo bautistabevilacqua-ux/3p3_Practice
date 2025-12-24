@@ -1,0 +1,45 @@
+@if (item.children && item.children.length > 0) {
+<mat-accordion displayMode="flat">
+  <mat-expansion-panel class="mat-elevation-z0" [expanded]="item.isExpanded">
+    <mat-expansion-panel-header class="hover-effect">
+      <mat-panel-title>
+        @if (item.icon) {
+        <mat-icon class="menu-icon">{{ item.icon }}</mat-icon>
+        }
+        <span>{{ item.label }}</span>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="sub-menu-container px-4">
+      @for (child of item.children; track child.label) {
+      <a
+        mat-list-item
+        [routerLink]="child.route"
+        routerLinkActive
+        #rlaChild="routerLinkActive"
+        [activated]="rlaChild.isActive"
+        color="primary"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <span matListItemTitle>{{ child.label }}</span>
+      </a>
+      }
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+} @else {
+<a
+  mat-list-item
+  [routerLink]="item.route"
+  routerLinkActive
+  #rla2="routerLinkActive"
+  [activated]="rla2.isActive"
+  color="secondary"
+  [routerLinkActiveOptions]="{ exact: true }"
+>
+  @if (item.icon) {
+  <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+  }
+  <span matListItemTitle>{{ item.label }}</span>
+</a>
+}

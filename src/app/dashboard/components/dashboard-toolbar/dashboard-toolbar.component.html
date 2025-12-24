@@ -1,0 +1,28 @@
+<mat-toolbar class="shadow-md z-10 relative bg-white">
+  <button mat-icon-button (click)="onMenuClick()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <span class="ml-2 font-medium">3p3</span>
+
+  <span class="flex-1"></span>
+
+  <mat-menu #appMenu="matMenu">
+    <ng-template matMenuContent>
+      <button mat-menu-item>Settings</button>
+      <button mat-menu-item>Help</button>
+    </ng-template>
+  </mat-menu>
+
+  <button
+    mat-button
+    [matMenuTriggerFor]="appMenu"
+    color="primary"
+    class="min-w-0! px-3 rounded-full"
+  >
+    <div class="flex items-center gap-1">
+      <mat-icon>account_circle</mat-icon>
+      <mat-icon class="icon-sm">expand_more</mat-icon>
+    </div>
+  </button>
+</mat-toolbar>
