@@ -1,5 +1,10 @@
 <mat-sidenav-container class="h-screen w-full">
-  <mat-sidenav #sidenav mode="side" opened class="w-65! border-r! border-gray-300! fixed-sidenav">
+  <mat-sidenav
+    #sidenav
+    [mode]="isMobile() ? 'over' : 'side'"
+    [opened]="!isMobile()"
+    class="w-65! border-r! border-gray-300! fixed-sidenav bg-white"
+  >
     <app-side-nav></app-side-nav>
   </mat-sidenav>
 

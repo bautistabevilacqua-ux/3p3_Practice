@@ -3,5 +3,5 @@ export interface NavItem {
   icon?: string;
   route?: string;
   children?: NavItem[];
-  isExpanded?: boolean; // Para controlar si el acordeón inicia abierto
+  isExpanded?: boolean;
 }
